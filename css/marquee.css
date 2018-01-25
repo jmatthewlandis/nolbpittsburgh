@@ -47,26 +47,27 @@
   bottom: 35px;
   left: 0px;
   margin-left: 16%;
-  font-family: 'Lato', sans-serif;
-  padding-bottom: 15px;
+  font-family: 'raleway', sans-serif;
+  padding-bottom: 70px;
 }
 
 .marquee .marquee_panel .panel_caption h3 {
-  font-family: 'PT Serif', serif;
   margin: 0px 0px 0px 0px;
   font-weight: 400;
   font-size: 2.7em;
   color:#fff;
 }
+
 .marquee .marquee_panel .panel_caption p {
   margin: 0px 50px 15px 50px;
   color: #888;
   font-size: 1.3em;
   color: rgba(255,255,255,.75);
 }
-.marquee .marquee_panel .panel_caption a.cta {
+
+/*.marquee .marquee_panel .panel_caption a.cta {
   display: inline-block;
-  background-color: rgba(255,255,255,0);
+  background-color: #da2128;
   text-transform: uppercase;
   color:#fff;
   font-size: .9em;
@@ -75,12 +76,18 @@
   border: 1px solid rgba(255,255,255,.5);
   border-radius: 5px;
   text-decoration: none;
+  z-index: 2;
 }
 
 .marquee .marquee_panel .panel_caption a:hover {
   background-color: rgba(255,255,255,.6);
   color:#000;
   border-color: rgba(255,255,255,0);
+}*/
+
+.marquee .marquee_panel .panel_caption a{
+  z-index: 2;
+  /*border-radius: 5px;*/
 }
 
 .marquee .overlay {
@@ -91,6 +98,7 @@
   height: 100%;
   background-image: linear-gradient(rgba(0,0,0,0) 45%, rgba(0,0,0,.7) 70%);
   background-size: 100%;
+  z-index: 1;
 }
 
 .marquee_nav {
@@ -100,26 +108,30 @@
   z-index: 103;
 }
 
-.marquee_nav div:hover {
+.marquee_nav .tabitem:hover {
   background-color: rgba(255,255,255,.2);
+  border-right: 3px solid #00529b;
 }
 
-.marquee_nav div:focus {
-  background-color: rgba(255,255,255,.2);
-  border-right: 2px #ffc20e;
-}
-
-.marquee_nav .tabitem div {
-  border-right: 3px solid rgba(255,255,255,.5);
-  display: table;
+.marquee_nav .tabitem {
   align-items: center;
   cursor: pointer;
   transition: background-color .4s, border .4s;
 }
 
-.marquee_nav .tabcontent {
-  display: table-cell;
-  vertical-align: center !important;
+.mn_container .select {
+  border-right: 3px solid #00529b;
+  color: #da2128;
+}
+
+.tabitem div {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  transform: translate(0, -50%);
 }
 
 .marquee_nav h2 {

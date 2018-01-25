@@ -69,7 +69,7 @@ function marqueeMultiPanel(){
 
   var tab_height = Math.floor(620 / marqueeVars.totalPanels);
   for(i=0; i<marqueeVars.totalPanels; i++) {
-      $('.marquee_nav').append('<div class="tabitem" style="height: '+tab_height+'px;"><div class="tabcontent"><h2>'+headers[i]+'</h2><p>'+taglines[i]+'</p></div></div>');
+      $('.mn_container').append('<li class="tabitem" style="height: '+tab_height+'px;"><div><h2>'+headers[i]+'</h2><p>'+taglines[i]+'</p></div></li>');
   };
 
   $('.marquee').hover(function(){
@@ -79,10 +79,17 @@ function marqueeMultiPanel(){
     marqueeVars.timePassed = Math.floor(marqueeVars.timeToChange / 2);
   });
 
-  $('.marquee_nav div').on('click',function(){
+  $('.mn_container li').on('click',function(){
     var navClicked = $(this).index();
     marqueeVars.currentPanel = navClicked + 1;
 
+    $('.mn_container li').each(function(index) {
+      if(index == navClicked) {
+        $(this).addClass('select');
+      } else {
+        $(this).removeClass('select');
+      }
+    });
 
     $('.marquee_stage_large').append('<div class="marquee_container_2" style="opacity:0;"></div>');
     $('.marquee_container_2').html(marqueeVars.panelContent[navClicked]).animate({opacity:1},marqueeVars.duration,function(){
@@ -91,7 +98,7 @@ function marqueeMultiPanel(){
     });
   });
 
-  $('.marquee_nav div:first').trigger('click');
+  $('.mn_container li:first').trigger('click');
 }
 
 
