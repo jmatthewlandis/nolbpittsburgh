@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
     <!-- Page Title -->
     <title>No One Left Behind - Pittsburgh</title>
     <!-- Script Calls -->
     <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
     <script type="text/javascript" src="js/marquee.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <!-- Page Stylesheets -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
@@ -19,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css">
     <link rel="stylesheet" type="text/css" href="css/zerogrid.css">
     <link rel="stylesheet" type="text/css" href="css/jPushMenu.css">
+    <link rel="stylesheet" type="text/css" href="css/modals.css">
     <link href='https://fonts.googleapis.com/css?family=Raleway:100,200,300,400%7COpen+Sans:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/onepage.css">
     <link rel="stylesheet" type="text/css" href="css/one-color.css">
@@ -39,6 +42,7 @@
       </div>
     </div>
 
+
     <!-- Main Header -->
     <header id="main-navigation">
       <div id="navigation" data-spy="affix" data-offset-top="20"><!-- Nav Section in Header -->
@@ -55,7 +59,7 @@
                   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#fixed-collapse-navbar" aria-expanded="true">
                     <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span>
                   </button>
-                  <a class="navbar-brand logo" href="#."><img src="images/nolbLogo_light.png" alt="logo" class="img-responsive"></a><!-- Logo -->
+                  <a class="navbar-brand logo page-scroll" href="#page-top"><img src="images/nolbLogo_light.png" alt="logo" class="img-responsive"></a><!-- Logo -->
                 </div>
                 <div id="fixed-collapse-navbar" class="navbar-collapse collapse navbar-right"><!-- Section Hides when collapsed -->
                   <ul class="nav navbar-nav"><!-- Navigation Links -->
@@ -69,10 +73,7 @@
                       <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
-                      <a class="page-scroll" href="#thinkers">Team</a>
-                    </li>
-                    <li>
-                      <a class="page-scroll" href="#volunteer">Volunteer</a>
+                      <a class="page-scroll" href="#team">Team</a>
                     </li>
                     <li>
                       <a class="page-scroll" href="#donate">Donate</a>
@@ -89,39 +90,54 @@
       </div><!-- End Nav Section -->
     </header>
 
+
     <!-- Splash Section -->
     <section id="main-slider">
       <div class="container-fluid">
         <div class="row">
-          <div class="marquee_nav col-lg-2 col-md-2">
+          <div class="marquee_nav col-25">
+            <ul class="mn_container"></ul>
           </div>
-          <div class="marquee col-lg-10 col-md-10 col-sm-12">
+          <div class="marquee col-75">
             <div class="marquee_data">
               <div class="marquee_panel" data-image="images/main-banner" head_title="Volunteer" tag-line="Help keep the nation's promise">
-                <h3>Volunteer</h3>
-                <p>Your work will save lives.</p>
-                <a class="cta" href="#volModal">Sign Up!</a>
+                <h3>Join Our Team</h3>
+                <p>Your work will literally save lives. Help us bring our wartime allies home, and keep the nation's promise. We always need help with events, transportion for appointments, and most of all, First Friends! The commitment is as big or little as you need. Together, we're pushing back against ignorance, and making Pittsburgh a welcoming and diverse city!</p>
+                <div>
+                  <a class="cta btn-common btn-red bounce-yellow" data-toggle="modal" data-target="#vol_modal">Sign Up</a>
+                  <a class="cta btn-common btn-blue bounce-yellow" href="#vol_info">Positions Needed</a>
+                </div>
               </div>
               <div class="marquee_panel" data-image="images/main-banner2" head_title="Donate" tag-line="Household goods, cars, money, all vital to our efforts">
-                <h3>Donate</h3>
-                <p>We are always looking for donations of household goods, cars, money, and furniture items.</p>
-                <a class="cta" href="#donations">Learn more</a>
+                <h3>Every Dollar, Every Item, Everything Counts</h3>
+                <p>We are always looking for donations of household goods, cars, money, and experiences for our families. We provide tax receipts for all donations, and we can pick up household goods right at your door. Click the link below for a list of what we need, and help us welcome these heros to the life they've earned!</p>
+                <div>
+                  <a class="cta btn-common btn-red bounce-yellow" href="#donate">Donate</a>
+                  <a class="cta btn-common btn-blue bounce-yellow" data-toggle="modal" data-target="#donate_modal">Needed Items</a>
+                </div>
               </div>
               <div class="marquee_panel" data-image="images/main-banner3" head_title="Employers" tag-line="Become a registered employer">
-                <h3>Magestic mountain peaks</h3>
-                <p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia.</p>
-                <a class="cta" href="http://lynda.com">Learn more</a>
+                <h3>Employ Our Veterans</h3>
+                <p>We greatly value our employment partners. Families run out of money within the first three months after arrival. They're hungry to work, to earn a place here, and like our U.S. veterans, they come with a wealth of experience and soft skills. Worried about language skills? These immigrants were originally hired for their language skills!</p>
+                <div>
+                  <a class="cta btn-common btn-red bounce-yellow" data-toggle="modal" data-target="#ref_employer_modal">Register Employer</a>
+                </div>
               </div>
-              <div class="marquee_panel" data-image="images/main-banner3" head_title="Partners" tag-line="Be the first friend to a family">
-                <h3>Magestic mountain peaks</h3>
-                <p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia.</p>
-                <a class="cta" href="http://lynda.com">Learn more</a>
+              <div class="marquee_panel" data-image="images/main-banner4" head_title="Housing" tag-line="Make a house a home">
+                <h3>Help Provide Stable Housing for Our Newest Americans!</h3>
+                <p>One of the greatest challenges is finding decent housing in and around the city. Our families come in with no credit or rental history, but we guarantee their rent for the duration of the original lease, and will assist with any issues you have as a housing partner. Good and decent landlords are gold to us, and we will always need more!</p>
+                <div>
+                  <a class="cta btn-common btn-red bounce-yellow" data-toggle="modal" data-target="#ref_landlord_modal">Register a Landlord</a>
+                  <a class="cta btn-common btn-blue bounce-yellow" data-toggle="modal" data-target="#ref_housing_modal">Refer a Home</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div style="margin-top:50px; background-color:#000000;">
+
+      <!-- Debugging for Marquee -->
+      <!-- <div style="margin-top:50px; background-color:#000000;">
         <div class="var1">x</div>
         <div class="var2">x</div>
         <div class="var3">x</div>
@@ -131,8 +147,9 @@
         <div class="var7">x</div>
         <div class="var8">x</div>
         <div class="var9">x</div>
-      </div>
+      </div> -->
     </section>
+
 
     <!-- About Section-->
     <section class="section-padding" id="about">
@@ -141,7 +158,7 @@
 
           <!-- Section Titles -->
           <div class="col-md-12 text-center wow fadeIn" data-wow-duration="500ms" data-wow-delay="300ms">
-            <p class="title">Our Services</p>
+            <p class="title">Select a link to learn more</p>
             <h2 class="heading">What We Do</h2>
           </div><!-- End Section Titles -->
 
@@ -164,7 +181,7 @@
                 data-target="#jobModal">
               </a>
             </span>
-            <h4 class="color2">Job Preparation</h4>
+            <h4 class="color2">Employment Assistance</h4>
             <p>We provide resume reviews, help with networking, interviewing, and application skills, and job-search guidance.</p>
           </div>
 
@@ -175,222 +192,115 @@
                 data-target="#socialModal">
               </a>
             </span>
-            <h4 class="color3">Social Fabric</h4>
+            <h4 class="color3">Social Networking</h4>
             <p>Incoming families often face isolation and unease as they transition. We help them engage with each other and the community through social and networking events.</p>
           </div><!-- End Row 1 -->
 
           <!-- Row 2 -->
           <div class="col-md-4 col-sm-4 canvas-box magin30 text-center wow fadeInDown" data-wow-duration="500ms" data-wow-delay="900ms">
             <span class="text-center">
-              <a class="fa fa-language  color2"
+              <a class="fa fa-language  color4"
                 data-toggle="modal"
                 data-target="#mentorModal">
               </a>
             </span>
-            <h4 class="color3">First Friends</h4>
-            <p>For every incoming family, we have a volunteer family that will become their first friends in their new life here, and help forge them into great citizens of Pittsburgh and the U.S.</p>
+            <h4 class="color4">First Friends</h4>
+            <p>For every incoming family, we have dedicated volunteers that will become their first friends in their new life here, and help forge them into great citizens of Pittsburgh and the U.S.</p>
           </div>
 
           <div class="col-md-4 col-sm-4 canvas-box magin30 text-center wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1100ms">
             <span class="text-center">
-              <a class="fa fa-map-marker color3"
+              <a class="fa fa-map-marker color5"
                 data-toggle="modal"
                 data-target="#transportationModal">
               </a>
             </span>
-            <h4 class="color2">Transportation Assistance</h4>
+            <h4 class="color5">Transportation Assistance</h4>
             <p>Wherever our families need to get, we get them there, teaching them the ropes for using public transportation, giving them rides, and as cars are donated, families have a chance to earn them through service to the community.</p>
           </div>
 
           <div class="col-md-4 col-sm-4 canvas-box magin30 text-center wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1200ms">
             <span class="text-center">
-              <a class="fa fa-graduation-cap color1"
+              <a class="fa fa-graduation-cap color6"
                 data-toggle="modal"
                 data-target="#educationModal">
               </a>
             </span>
-            <h4 class="color1">Education and Training</h4>
+            <h4 class="color6">Education and Training</h4>
             <p>Every day, we add more partners who train and prepare our interpreters and their family to be competitive in the workforce, and to acquire and improve language and communication skills. We also connect interested candidates to tradecraft training and industry specific schools.</p>
           </div><!-- End Row 2 -->
 
         </div><!-- End Section Content -->
 
-        <!-- Modals -->
-        <!-- Home Modal -->
-        <div id="homeModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Operation Bridge</h4>
-              </div>
-              <div class="modal-body">
-                <div class="row">
-                  <div class="col-md-8">
-                    <img align="left" class="img-responsive" src="images/arrival1.jpg">
-                  </div>
-                  <div class="col-md-4">
-                    <p>We give each interpreter and their family a hero's welcome at the airport, then take them to their home, which we've helped secure and fully furnish.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-red" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Job Modal -->
-        <div id="jobModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Operation Hammer</h4>
-              </div>
-              <div class="modal-body">
-                <div class="row">
-                  <div class="col-md-8">
-                    <img align="left" class="img-responsive" src="images/furnitureMove.jpg">
-                  </div>
-                  <div class="col-md-4">
-                    <p>We give each interpreter and their family a hero's welcome at the airport, then take them to their home, which we've helped secure and fully furnish.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-red" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Social Modal -->
-        <div id="socialModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Operation Triangle</h4>
-              </div>
-              <div class="modal-body">
-                <div class="row">
-                  <div class="col-md-8">
-                    <img align="left" class="img-responsive" src="images/tiffWasiBetty.jpg">
-                  </div>
-                  <div class="col-md-4">
-                    <p>We give each interpreter and their family a hero's welcome at the airport, then take them to their home, which we've helped secure and fully furnish.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-red" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Mentor Modal -->
-        <div id="mentorModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Operation Anvil</h4>
-              </div>
-              <div class="modal-body">
-                <div class="row">
-                  <div class="col-md-8">
-                    <img align="left" class="img-responsive" src="images/noorBaby.jpg">
-                  </div>
-                  <div class="col-md-4">
-                    <p>We give each interpreter and their family a hero's welcome at the airport, then take them to their home, which we've helped secure and fully furnish.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-red" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Transportation Modal -->
-        <div id="transportationModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Operation Steelwheel</h4>
-              </div>
-              <div class="modal-body">
-                <div class="row">
-                  <div class="col-md-8">
-                    <img align="left" class="img-responsive" src="images/auto-on.jpg">
-                  </div>
-                  <div class="col-md-4">
-                    <p>We give each interpreter and their family a hero's welcome at the airport, then take them to their home, which we've helped secure and fully furnish.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-red" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Education Modal -->
-        <div id="educationModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Operation Riverrun</h4>
-              </div>
-              <div class="modal-body">
-                <div class="row">
-                  <div class="col-md-8">
-                    <img align="left" class="img-responsive" src="images/zellFaz.jpg">
-                  </div>
-                  <div class="col-md-4">
-                    <p>We give each interpreter and their family a hero's welcome at the airport, then take them to their home, which we've helped secure and fully furnish.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-red" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Volunteer Modal -->
-        <div id="volModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header dark_gray">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Volunteer Sign-Up Form</h4>
-              </div>
-              <div class="modal-body darker_gray">
-                <iframe src="https://nooneleft.secure.force.com/signup/GW_Volunteers__VolunteersSignupFS" frameborder="0" scrolling= "true" height="600" width="500"></iframe>
-              </div>
-              <div class="modal-footer dark_gray">
-                <button type="button" class="btn yellow" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
 
       </div><!-- End About Section -->
     </section>
 
+
+    <!-- Responsive image with left -->
+    <section id="vol_info" class="top-padding">
+      <div class="container-fluid top-padding">
+        <div class="row responsive-pic">
+          <div class="col-md-1 col-sm-1"></div>
+          <div class="col-md-3 col-sm-3 wow fadeInLeft tab-content" data-wow-duration="500ms" data-wow-delay="600ms">
+            <div id="menu0" class="tab-pane fade in active">
+              <h3 class="magin30 text-center">First Friend</h3>
+              <p class="text-justify">The most important service our organization provides is the First Friend. Each family or interpreter we bring in needs a guide to help them transition to a new country and culture. Most of the time, this is as simple as answering questions about paperwork, helping them navigate a bureaucratic system, help enrolling the children in school, or just advice about how to handle something. It's a friendship. The connection our First Friends make with their family is incredibly strong, and most often looks and feels like any friendship you've ever had. It's incredibly rewarding, a lifechanging experience. As with all our volunteers, we provide all the training you'll need, and there are no contractual requirements.</p>
+            </div>
+            <div id="menu1" class="tab-pane fade">
+              <h3 class="magin30 text-center">General Volunteer</h3>
+              <p class="text-justify">Most of the work our volunteers do is on request. Every day we receive requests from families for help with paperwork for bills, signing kids up for sports, help finding a good market in their area, almost anything you can think of. Often, the First Friends for that family provide direct help, but it's a team effort, and for those that want to be involved but need more flexibility than being a First Friend allows, this is the perfect option.</p>
+            </div>
+            <div id="menu2" class="tab-pane fade">
+              <h3 class="magin30 text-center">Event Planning Assistant</h3>
+              <p class="text-justify">We try to have a minimum of one event each month, in addition to our monthly scheduled pot-luck dinners. Sporting events, family outings, museum days, service projects...the only limit is your imagination, and we need your ideas. Then we need your planning help to make your ideas a huge, successful reality!</p>
+            </div>
+            <div id="menu3" class="tab-pane fade">
+              <h3 class="magin30 text-center">Salesforce Administrator</h3>
+              <p class="text-justify">Recently, No One Left Behind has adopted Salesforce as our CRM platform. This helps us track our families, volunteers, and events, and makes reporting more manageable. The job is mostly data entry, and no direct experience with Salesforce is required, but general computer knowledge is helpful.</p>
+            </div>
+            <div id="menu4" class="tab-pane fade">
+              <h3 class="magin30 text-center">Social Media Assistant</h3>
+              <p class="text-justify">The organization has Twitter, Facebook, and Instagram accounts, but we are barely posting 10% of the good work we do, and we're constantly missing out on opportunities to reach out to new volunteers, potential employers and landlords, and partners in general. We need a small team of volunteers to post a couple times a week with simple updates, pictures, and links to content that will expand our reach.</p>
+            </div>
+            <div id="menu5" class="tab-pane fade">
+              <h3 class="magin30 text-center">Donation Pick Up Team</h3>
+              <p class="text-justify">It's a thankless job, but our success in setting up incoming families is entirely predicated on our ability to outfit their home with everything you would hope to find in your own home. We rely almost entirely on donated items to fill this requirement, but that means we need hands to help pick up and drop off these items. We need a pool of volunteers who can occasionally lend a hand.</p>
+            </div>
+            <div id="menu6" class="tab-pane fade">
+              <h3 class="magin30 text-center">Resume Review Volunteer</h3>
+              <p class="text-justify">One of the greatest challenges facing our families is adapting their experiences for inclusion in a resume. While most speak very good English, the task of shortening blurbs and tailoring language for the job market is a skill they need to help them succeed and get their feet under them with a good job.</p>
+            </div>
+            <div id="menu7" class="tab-pane fade">
+              <h3 class="magin30 text-center">Webdesign Assistant</h3>
+              <p class="text-justify">If it's not already clear from the state of our site, we always need help from volunteers to maintain and update our site content. This doesn't necessarily require knowledge of web design, just a desire to learn.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="900ms"">
+            <img src="images/pgh_chapter.jpg" alt="fully responsive" class="img-responsive">
+            <a class="btn-common btn-red bounce-yellow" data-toggle="modal" data-target="#vol_modal">Sign Up</a>
+          </div>
+          <div class="col-md-3 col-sm-3 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="900ms">
+            <h3 class="magin30">Positions Needed:</h3>
+            <ul class="nav nav-pills nav-stacked">
+              <li class="active"><a data-toggle="pill" href="#menu0">First Friend</a></li>
+              <li><a data-toggle="pill" href="#menu1">General Volunteer</a></li>
+              <li><a data-toggle="pill" href="#menu2">Event Planning Assistant</a></li>
+              <li><a data-toggle="pill" href="#menu3">Salesforce Administrator</a></li>
+              <li><a data-toggle="pill" href="#menu4">Social Media Assistant</a></li>
+              <li><a data-toggle="pill" href="#menu5">Donation Pick Up Team</a></li>
+              <li><a data-toggle="pill" href="#menu6">Resume Review Volunteer</a></li>
+              <li><a data-toggle="pill" href="#menu7">Webdesign Assistant</a></li>
+            </ul>
+          </div>
+          <div class="col-md-1 col-sm-1"></div>
+        </div>
+      </div>
+    </section>
+
+
     <!-- Paralax Effect Section -->
-    <div style="position:relative;" class="top-padding"><!-- Section Padding -->
+    <div style="position:relative;"><!-- Section Padding -->
       <section id="bg-paralax">
         <div class="container">
           <div class="row">
@@ -398,397 +308,163 @@
             <div class="col-md-12 text-center">
               <p>Looking for Something More?</p>
               <h2 class="magin30">Join Our Leadership Team</h2>
-              <a class="btn-blue btn-common bounce-top page-scroll" href="#leadershipteam">Apply Here</a>
+              <a class="btn-blue btn-common bounce-top page-scroll" data-toggle="modal" data-target="#lead_candidate_modal">Apply Here</a>
             </div>
           </div>
         </div>
       </section>
     </div>
 
-    <!-- Responsive image with left -->
-    <section id="leadershipteam" class="top-padding">
-      <div class="container-fluid">
-        <div class="row responsive-pic">
-          <div class="col-md-1 col-sm-1"></div>
-          <div class="col-md-5 col-sm-5 wow fadeInLeft tab-content" data-wow-duration="500ms" data-wow-delay="600ms">
-            <div class="tab-pane fade in active">
-              <img src="images/LeadershipTeam.jpg" alt="fully responsive" class="img-responsive">
-            </div>
-            <div id="menu0" class="magin30 tab-pane fade">
-              <h3 class="magin30">Airport Operations Manager</h3>
-              <p>Some content in menu 1.</p>
-            </div>
-            <div id="menu1" class="tab-pane fade">
-              <h3>Director of Social Media</h3>
-              <p>Some content in menu 1.</p>
-            </div>
-            <div id="menu2" class="tab-pane fade">
-              <h3>Salesforce Administrator</h3>
-              <p>Some content in menu 2.</p>
-            </div>
-            <div id="menu3" class="tab-pane fade">
-              <h3>Social Coordinator</h3>
-              <p>Some content in menu 1.</p>
-            </div>
-            <div id="menu4" class="tab-pane fade">
-              <h3>Inventory System Coordinator</h3>
-              <p>Some content in menu 2.</p>
-            </div>
-            <div id="menu5" class="tab-pane fade">
-              <h3>Resume Review Coordinator</h3>
-              <p>Some content in menu 1.</p>
-            </div>
-            <div id="menu6" class="tab-pane fade">
-              <h3>Website Manager</h3>
-              <p>Some content in menu 2.</p>
-            </div>
-          </div>
-          <div class="container wow fadeInRight" data-wow-duration="500ms" data-wow-delay="900ms">
-            <div class="row">
-              <div class="col-md-6 col-sm-6 r-test">
-                <h3 class="magin30">Positions Needed:</h3>
-                <ul class="nav nav-pills nav-stacked">
-                  <li><a data-toggle="pill" href="#menu0">Airport Operations Manager</a></li>
-                  <li><a data-toggle="pill" href="#menu1">Director of Social Media</a></li>
-                  <li><a data-toggle="pill" href="#menu2">Salesforce Administrator</a></li>
-                  <li><a data-toggle="pill" href="#menu3">Social Coordinator</a></li>
-                  <li><a data-toggle="pill" href="#menu4">Inventory System Coordinator</a></li>
-                  <li><a data-toggle="pill" href="#menu5">Resume Review Coordinator</a></li>
-                  <li><a data-toggle="pill" href="#menu6">Website Manager</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!--Counter-->
-    <section id="facts" class="top-padding">
-      <h3 class="hidden">hidden</h3>
-      <div class="container-fluid">
-        <div class="row number-counters">
-          <!-- first count item -->
-          <div class="col-md-3 col-sm-3 col-xs-12 text-center wow fadeInDown" data-wow-duration="500ms" data-wow-delay="300ms">
-            <div class="counters-item blue row">
-              <i class="icon-smile"></i>
-              <h2><strong data-to="125">0</strong></h2>
-              <p>Happy Customer</p>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-3 col-xs-12 text-center wow fadeInDown" data-wow-duration="500ms" data-wow-delay="600ms">
-            <div class="counters-item dark_gray row">
-              <i class="icon-icons42"></i>
-              <h2><strong data-to="865">0</strong></h2>
-              <p>Lines of Codes</p>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-3 col-xs-12 text-center wow fadeInDown" data-wow-duration="500ms" data-wow-delay="900ms">
-            <div class="counters-item blue row">
-              <i class="icon-alarmclock"></i>
-              <h2><strong data-to="510">0</strong></h2>
-              <p>Project Completed</p>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-3 col-xs-12 text-center wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1200ms">
-            <div class="counters-item green row">
-              <i class="icon-icons9"></i>
-              <h2><strong data-to="1350">0</strong></h2>
-              <p>Cup of coffees</p>
-            </div>
-          </div>
-          <!-- end first count item -->
-        </div>
-      </div>
-    </section>
 
     <!-- Our Team -->
-    <section id="thinkers" class="section-padding padding-botom">
+    <section id="team" class="section-padding padding-botom">
       <div class="container">
         <div class="row text-center">
           <div class="col-md-12 wow fadeIn">
-            <p class="title">Passionate about perfection</p>
-            <h2 class="heading">Creative thinkers</h2>
+            <p class="title">Passionate for the Mission</p>
+            <h2 class="heading">Our Leadership Team</h2>
           </div>
-          <div class="col-md-4 col-sm-4 wow fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="300ms">
+
+          <!-- First Row -->
+          <div class="col-md-3 col-sm-3 wow fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="300ms">
             <div class="thinker-wrap">
               <div class="thinker-image">
-                <img src="images/thinker.jpg" alt="Richard" class="img-responsive">
-                <div class="overlay">
-                  <div class="overlay-inner">
-                    <ul class="social-link">
-                      <li><a href="#." class="text-center"><i class="fa fa-facebook"></i><span></span></a></li>
-                      <li><a href="#." class="text-center"><i class="fa fa-twitter"></i><span></span></a></li>
-                      <li><a href="#." class="text-center"><i class="icon-instagram"></i><span></span></a></li>
-                    </ul>
-                  </div>
-                </div>
+                <img src="images/photos/headshots/ml.jpg" alt="Chapter Director" class="img-responsive">
               </div>
-            <h3>John Doe</h3>
-            <small>Ceo</small>
-            <p>Keep away from people who try to belittle your ambitions. </p>
+              <h3>Matt Landis</h3>
+              <small>Chapter Director</small>
             </div>
           </div>
-          <div class="col-md-4 col-sm-4 wow fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="600ms">
+          <div class="col-md-3 col-sm-3 wow fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="600ms">
             <div class="thinker-wrap">
               <div class="thinker-image">
-                <img src="images/thinker2.jpg" alt="Richard" class="img-responsive">
-                <div class="overlay green">
-                  <div class="overlay-inner">
-                    <ul class="social-link">
-                      <li><a href="#." class="text-center"><i class="fa fa-facebook"></i><span></span></a></li>
-                      <li><a href="#." class="text-center"><i class="fa fa-twitter"></i><span></span></a></li>
-                      <li><a href="#." class="text-center"><i class="icon-instagram"></i><span></span></a></li>
-                    </ul>
-                  </div>
-                </div>
+                <img src="images/photos/headshots/sc.jpg" alt="Director of Operations" class="img-responsive">
               </div>
-              <h3>Mary Jane</h3>
-              <small>Co-Founder</small>
-              <p>Keep away from people who try to belittle your ambitions. Small people always do that.</p>
+              <h3>Sean Cercone</h3>
+              <small>Director of Operations</small>
             </div>
           </div>
-          <div class="col-md-4 col-sm-4 wow fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="900ms">
+          <div class="col-md-3 col-sm-3 wow fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="900ms">
             <div class="thinker-wrap">
               <div class="thinker-image">
-                <img src="images/thinker3.jpg" alt="Richard" class="img-responsive">
-                <div class="overlay">
-                  <div class="overlay-inner">
-                    <ul class="social-link">
-                      <li><a href="#." class="text-center"><i class="fa fa-facebook"></i><span></span></a></li>
-                      <li><a href="#." class="text-center"><i class="fa fa-twitter"></i><span></span></a></li>
-                      <li><a href="#." class="text-center"><i class="icon-instagram"></i><span></span></a></li>
-                    </ul>
-                  </div>
-                </div>
+                <img src="images/photos/headshots/tl.jpg" alt="Director of Family Services" class="img-responsive">
               </div>
-              <h3>Josh Clark</h3>
-              <small>Sales Head</small>
-              <p>Keep away from people who try to belittle your ambitions. Small people always do that.</p>
+              <h3>Tiffany Landis</h3>
+              <small>Director of Family Services</small>
             </div>
           </div>
+          <div class="col-md-3 col-sm-3 wow fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="300ms">
+            <div class="thinker-wrap">
+              <div class="thinker-image">
+                <img src="images/photos/headshots/af.jpg" alt="Director of Resettlement" class="img-responsive">
+              </div>
+              <h3>Adriane Ferguson</h3>
+              <small>Director of Resettlement</small>
+            </div>
+          </div>
+
+          <!-- Second Row -->
+          <div class="col-md-3 col-sm-3 wow fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="300ms">
+            <div class="thinker-wrap">
+              <div class="thinker-image">
+                <img src="images/photos/headshots/gb.jpg" alt="Director of Partnerships" class="img-responsive">
+              </div>
+              <h3>Greg Bell</h3>
+              <small>Director of Partnerships</small>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3 wow fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="600ms">
+            <div class="thinker-wrap">
+              <div class="thinker-image">
+                <img src="images/photos/headshots/js.jpg" alt="Jane Switzer" class="img-responsive">
+              </div>
+              <h3>Jane Switzer</h3>
+              <small>In-House Legal Counsel</small>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3 wow fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="900ms">
+            <div class="thinker-wrap">
+              <div class="thinker-image">
+                <img src="images/photos/headshots/nm.jpg" alt="Nathan Mallory" class="img-responsive">
+              </div>
+              <h3>Nathan Mallory</h3>
+              <small>Events Director</small>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3 wow fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="300ms">
+            <div class="thinker-wrap">
+              <div class="thinker-image">
+                <img src="images/photos/headshots/holder.jpg" alt="Webmaster" class="img-responsive">
+              </div>
+              <h3>Joshua Stanford</h3>
+              <small>Webmaster</small>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Work Project GALLERY -->
-    <section id="project" class="wow fadeInUp section-padding" data-wow-duration="500ms" data-wow-delay="900ms">
-      <!-- Selection Menu -->
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <p class="title">what we do</p>
-            <h2 class="heading">Our Operations</h2>
-            <div class="work-filter">
-              <ul class="text-center">
-                <li><a href="javascript:;" data-filter="all" class="active filter">All</a></li>
-                <li><a href="javascript:;" data-filter=".brand" class="filter">Operation Golden Bridge</a></li>
-                <li><a href="javascript:;" data-filter=".design" class="filter">Design</a></li>
-                <li><a href="javascript:;" data-filter=".graphic" class="filter">Graphic</a></li>
-                <li><a href="javascript:;" data-filter=".video" class="filter">Video</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Gallery Container -->
-      <div class="container-fluid project-wrapper">
-        <!-- Zerogrid Designator -->
-        <div class="zerogrid">
-          <!-- Wrap Container Start -->
-          <div class="wrap-container clearfix">
-            <!-- Row 1 Start -->
-            <div class="row wrap-content">
-              <!-- Column 1 Start -->
-              <div class="col-1-2">
-                <!-- Video Item -->
-                <div class="col-full mix work-item video">
-                  <div class="wrap-col">
-                    <div class="item-container">
-                      <a class="fancybox overlay text-center" data-fancybox-group="gallery" href="images/workimg1.jpg">
-                        <div class="overlay-inner">
-                          <h4 class="base">Creative Design</h4>
-                          <div class="line"></div>
-                          <p>Print Media</p>
-                        </div>
-                      </a>
-                      <img src="images/workimg1.jpg" alt="work"/>
-                    </div>
-                  </div>
-                </div>
-                <!-- Brand Itom -->
-                <div class="col-2-4 mix work-item brand">
-                  <div class="wrap-col">
-                    <div class="item-container">
-                      <a class="fancybox-media overlay text-center" href="https://player.vimeo.com/video/145241713">
-                        <div class="overlay-inner">
-                          <h4 class="base">Mobile Designs</h4>
-                          <div class="line"></div>
-                          <p>Latest Apps</p>
-                        </div>
-                      </a>
-                    <img src="images/workimg4.jpg" alt="work"/>
-                    </div>
-                  </div>
-                </div>
-                <!-- Work Item -->
-                <div class="col-2-4 mix work-item">
-                  <div class="wrap-col">
-                    <div class="item-container">
-                      <a class="fancybox overlay text-center" data-fancybox-group="gallery" href="images/workimg5.jpg">
-                        <div class="overlay-inner">
-                          <h4 class="base">Print Designs</h4>
-                          <div class="line"></div>
-                          <p>Elements</p>
-                        </div>
-                      </a>
-                      <img src="images/workimg5.jpg" alt="work"/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Column 1 End -->
-              <!-- Column 2, Graphic Item -->
-              <div class="col-1-4 mix work-item graphic">
-                <div class="wrap-col">
-                  <div class="item-container">
-                    <a class="fancybox overlay text-center" data-fancybox-group="gallery" href="images/workimg2.jpg">
-                      <div class="overlay-inner">
-                        <h4 class="base">Modern Workspace</h4>
-                        <div class="line"></div>
-                        <p>Workstations</p>
-                      </div>
-                    </a>
-                    <img src="images/workimg2.jpg" alt="work"/>
-                  </div>
-                </div>
-              </div>
-              <!-- Design Item -->
-              <div class="col-1-4 mix work-item design">
-                <div class="wrap-col">
-                  <div class="item-container">
-                    <a class="fancybox overlay text-center" data-fancybox-group="gallery" href="images/workimg3.jpg">
-                      <div class="overlay-inner">
-                        <h4 class="base">Elegant Images</h4>
-                        <div class="line"></div>
-                        <p>Laptops</p>
-                      </div>
-                    </a>
-                    <img src="images/workimg3.jpg" alt="work"/>
-                  </div>
-                </div>
-              </div>
-              <!-- Column 2 End -->
-              <!-- Column 3, Graphic Item -->
-              <div class="col-1-2 mix work-item graphic">
-                <div class="wrap-col">
-                  <div class="item-container">
-                    <a class="fancybox overlay text-center" data-fancybox-group="gallery" href="images/workimg6.jpg">
-                      <div class="overlay-inner">
-                        <h4 class="base">Photography</h4>
-                        <div class="line"></div>
-                        <p>Stock Collection</p>
-                      </div>
-                    </a>
-                    <img src="images/workimg6.jpg" alt="work"/>
-                  </div>
-                </div>
-              </div>
-              <!-- Column 3 End -->
-            </div>
-            <!-- Row 1 End -->
-          </div>
-          <!-- Wrap Container End -->
-        </div>
-        <!-- Zerogrid End -->
-      </div>
-      <!-- Gallery Container End -->
-    </section>
 
-    <!-- Volunteer Section -->
-    <section class="section-padding padding" id="donatemoney">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <p class="title">Passionate about perfection</p>
-            <h2 class="heading">Pricing Tables</h2>
-          </div>
-          <div class="col-md-12">
-            <div class="pricing pricing_tenzin">
-              <div class="pricing_item dark_gray">
-                <h3 class="pricing_title">Basic</h3>
-                <div class="pricing_price"><span class="pricing_currency">$</span>9.90</div>
-                <p class="pricing_sentence">Perfect for single freelancers who work by themselves</p>
-                <ul class="pricing_list">
-                  <li class="pricing_feature">Support forum</li>
-                  <li class="pricing_feature">Free hosting</li>
-                  <li class="pricing_feature">40MB of storage space</li>
-                </ul>
-                <a class="pricing_action text-center" href="#.">Choose plan</a>
-              </div>
-              <div class="pricing_item active">
-                <h3 class="pricing_title">Popular</h3>
-                <div class="pricing_price"><span class="pricing_currency">$</span>29,90</div>
-                <p class="pricing_sentence">Suitable for small businesses with up to 5 employees</p>
-                <ul class="pricing_list">
-                  <li class="pricing_feature">Unlimited calls</li>
-                  <li class="pricing_feature">Free hosting</li>
-                  <li class="pricing_feature">10 hours of support</li>
-                  <li class="pricing_feature">Social media integration</li>
-                  <li class="pricing_feature">1GB of storage space</li>
-                </ul>
-                <a class="pricing_action text-center" href="#.">Choose plan</a>
-              </div>
-              <div class="pricing_item dark_gray">
-                <h3 class="pricing_title">Premier</h3>
-                <div class="pricing_price"><span class="pricing_currency">$</span>59,90</div>
-                <p class="pricing_sentence">Great for large businesses with more than 5 employees</p>
-                <ul class="pricing_list">
-                  <li class="pricing_feature">Unlimited calls</li>
-                  <li class="pricing_feature">Free hosting</li>
-                  <li class="pricing_feature">Unlimited hours of support</li>
-                  <li class="pricing_feature">Social media integration</li>
-                  <li class="pricing_feature">Anaylitcs integration</li>
-                  <li class="pricing_feature">Unlimited storage space</li>
-                </ul>
-                <a class="pricing_action text-center" href="#.">Choose plan</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Slogan -->
-    <section id="donatemoney" class="wow fadeIn" data-wow-duration="500ms" data-wow-delay="300ms">
+    <!-- Donate Section -->
+    <section id="donate" class="we-do bg-grey padding">
       <div class="container">
         <div class="row">
-          <div class="col-md-12">
-            <h5 class="hidden">hiddens</h5>
-            <p class="pull-left">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
-            <a class="pull-right bounce-top" href="#.">get in touch</a>
+          <div class="col-md-12 text-center wow fadeIn">
+            <p class="title">Every Donation is a Communication of Worth</p>
+            <h2 class="heading">Ways to Give</h2>
+          </div>
+          <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+            <div data-toggle="modal" data-target="#sched_pu_modal" class="do-wrap text-center">
+              <div class="dark_gray top"></div>
+              <span class="dark_gray"><i class="icon-icons9"></i></span>
+              <h4>Schedule a Donation Pick Up</h4>
+              <p>We can pick up household goods and most appliances right at your door. Click to schedule.</p></div>
+          </div>
+          <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="600ms">
+            <div class="do-wrap text-center" data-toggle="modal" data-target="#car_donate_modal">
+              <div class="dark_gray top"></div>
+              <span class="dark_gray"><i class="icon-icons96"></i></span>
+              <h4>Donate a Car</h4>
+              <p>Transportation is a vital step for our families along the way to getting established here.</p></div>
+          </div>
+          <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="900ms">
+            <div class="do-wrap text-center" data-toggle="modal" data-target="#sched_pu_modal">
+              <div class="dark_gray top"></div>
+             <span class="dark_gray"> <i class="icon-icons42"></i></span>
+              <h4>Tickets and Experiences</h4>
+              <p>A day at the zoo, a Pirates game, rides on the incline...experiencing Pittsburgh is what makes our families Pittsburghers</p></div>
+          </div>
+          <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="1200ms">
+            <a href="https://web.charityengine.net/default.aspx?tsid=5274" target="external">
+            <div class="do-wrap text-center">
+              <div class="dark_gray top"></div>
+              <span class="dark_gray"><i class="icon-icons9"></i></span>
+              <h4>Monetary Donations</h4>
+              <p>All donations to our national organization go to support our day to day operations locally.</p>
+            </div>
+            </a>
           </div>
         </div>
       </div>
-    </section>
+     </section>
+
+
 
     <!-- Contact Us -->
     <section class="info-section" id="contact">
       <div class="row">
         <div class="col-md-6 block text-center wow fadeInLeftBig" data-wow-duration="500ms" data-wow-delay="300ms">
           <div class="center">
-            <p class="title">Open for you</p>
+            <p class="title">Any Questions?</p>
             <h2>We're here</h2>
-            <p class="margen">Keep away from people who try to belittle your ambitions Small people always do that but the really great Friendly.</p>
-            <p><strong>Postal Adress:</strong> 198 West 21th Street Victoria 8007, Australia</p>
-            <p><strong>Phone:</strong> (654) 332-112-222</p>
-            <p><strong>Email:</strong> <a href="#.">email@website.com</a></p>
+            <p class="margen">Our Chapter is always looking for suggestions and help with providing the best possible service to our SIV's, our volunteers, and those in the community that support us and our mission. Don't hesitate to drop us a line.</p>
+            <p><strong>Email:</strong> <a href="#.">mlandis@nooneleft.org</a></p>
             <ul class="social-link">
-              <li><a href="#." class="text-center"><i class="fa fa-facebook"></i><span></span></a></li>
-              <li><a href="#." class="text-center"><i class="fa fa-twitter"></i><span></span></a></li>
-              <li><a href="#." class="text-center"><i class="fa fa-dribbble"></i><span></span></a></li>
-              <li><a href="#." class="text-center"><i class="fa fa-flickr"></i><span></span></a></li>
+              <li><a href="https://www.facebook.com/nooneleftbehindpitt/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="https://twitter.com/NOLBPittsburgh" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="https://www.instagram.com/pittsburghnooneleftbehind/" target="_blank" class="instagram"><i class="icon-instagram"></i></a></li>
             </ul>
           </div>
         </div>
@@ -818,6 +494,7 @@
       </div>
     </section>
 
+
     <!-- Footer-->
     <footer class=" wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
       <div class="container">
@@ -825,13 +502,12 @@
           <div class="col-md-12 text-center">
             <ul class="breadcrumb">
               <li><a href="#." class="page-scroll">Home</a></li>
-              <li><a href="#about" class="page-scroll">About</a></li>
-              <li><a href="#project" class="page-scroll">Portfolio</a></li>
-              <li><a href="#publication" class="page-scroll">Blog</a></li>
-              <li><a href="#thinkers" class="page-scroll">Team</a></li>
+              <li><a href="#about" class="page-scroll">About Us</a></li>
+              <li><a href="#donate" class="page-scroll">Donate</a></li>
+              <li><a href="#team" class="page-scroll">Our Team</a></li>
               <li><a href="#contact" class="page-scroll">Contact Us</a></li>
             </ul>
-          <p>Copyright &copy; 2017 No One Left Behind - Pittsburgh Chapter. all rights reserved.</p>
+          <p>Copyright &copy; 2018 No One Left Behind - Pittsburgh Chapter. all rights reserved.</p>
           </div>
         </div>
       </div>
@@ -839,6 +515,978 @@
 
     <a href="#." class="go-top text-center"><i class="fa fa-angle-double-up"></i></a>
 
+
+
+    <!--- Modals -->
+    <!-- Volunteer Modal For Sign Up -->
+    <div id="vol_modal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Volunteer Sign-Up Form</h4>
+          </div>
+          <div class="modal-body">
+            <iframe src="https://nooneleft.secure.force.com/signup/GW_Volunteers__VolunteersSignupFS" frameborder="0" scrolling= "true" height="600" width="800"></iframe>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-common btn-grey" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Home Modal -->
+    <div id="homeModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Welcome Home</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-8">
+                <img align="left" class="img-responsive" src="images/photos/arrival2.jpg">
+              </div>
+              <div class="col-md-4">
+                <p>We give each interpreter and their family a hero's welcome at the airport, then take them to their residence, which we help secure and outfit with the donated items, everything needed to make it a home.</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-common btn-grey" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Job Modal -->
+    <div id="jobModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Employment Assistance</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-8">
+                <img align="left" class="img-responsive" src="images/photos/tiffWasiBetty.jpg">
+              </div>
+              <div class="col-md-4">
+                <p>We are always working to cultivate partnerships with area employers to provide that initial
+                job upon arrival. Once the family is secure, we continue by working with each adult to develop
+                career goals, and help them achieve those goals.</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-common btn-grey" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Social Modal -->
+    <div id="socialModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Social Networking</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-8">
+                <img align="left" class="img-responsive" src="images/photos/football_practice.jpg">
+              </div>
+              <div class="col-md-4">
+                <p>We hold monthly social events to keep our growing family in contact. Whether it's a pot luck dinner at the Islamic Center, a day in Schenley Park, or a trip to the zoo, we are always looking for ways to provide social opportunities to our families, and just as important, our volunteers.</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-common btn-grey" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Mentor Modal -->
+    <div id="mentorModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">First Friends</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12">
+                <img align="left" class="img-responsive" src="images/photos/dan_guys.jpg">
+              </div>
+              <div class="col-md-12">
+                <p>One of the most important roles in our organization are our First Friends. It's also the most rewarding. While the organization picks up all the work of helping stand the family up in a new city, it's the First Friend that will help them navigate their new world, and become true Pittsburghers. Many times it's as simple as taking them out to dinner, or answering questions about a holiday or tradition, but often the First Friend is a life line, the first person the family calls if there is a problem or issue they don't understand. It's a vital role, and most of the time, the First Friend becomes a life-long friend, and key person in the lives of the family and their children.</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-common btn-grey" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Transportation Modal -->
+    <div id="transportationModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Transportation Assistance</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12">
+                <img align="left" class="img-responsive" src="images/photos/car_donation.jpg">
+              </div>
+              <div class="col-md-12">
+                <p>Transportation is a vital need for our families. It's the key to employment early on, and to freedom for the family. We and our partners help provide initial training for navigating the city by public transportation, often providing volunteers for ride-alongs early in the process. We also have a national partnership with Lyft to provide emergency transportation as necessary. Finally, we are beginning to gain momentum in car donations, which we service and gift to families that volunteer with us to help their fellow SIV families.</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-common btn-grey" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Education Modal -->
+    <div id="educationModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Education and Training</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12">
+                <img align="left" class="img-responsive" src="images/photos/drawing_time_2.jpg">
+              </div>
+              <div class="col-md-12">
+                <p>As with any American, our families want and need opportunities to train and learn skills that fit the needs or our local economy. Their children are the future of our local economy. We constantly seek opportunities for them to train or learn, through programs at local colleges, the Trade Institute and local Unions, programs offered through the Carnegie Libraries and Museums, and the many excellent partners in the immigrant space here in Pittsburgh.</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-common btn-grey" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Donation Modal For Donated Items Needs -->
+    <div id="donate_modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">What We Need</h4>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <h3>Household Goods</h3>
+                  <ul class="list-group">
+                    <li class="list-group-item">Dishes</li>
+                    <li class="list-group-item">Cups/Glasses</li>
+                    <li class="list-group-item">Silverware</li>
+                    <li class="list-group-item">Blankets</li>
+                    <li class="list-group-item">Sheets</li>
+                    <li class="list-group-item">Pots & Pans</li>
+                    <li class="list-group-item">Small Appliances</li>
+                    <li class="list-group-item">Televisions and Media Players (Roku, AppleTV, etc.)</li>
+                  </ul>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <h3>Other Needs</h3>
+                  <ul class="list-group">
+                    <li class="list-group-item">Vehicles</li>
+                    <li class="list-group-item">Car Seats</li>
+                    <li class="list-group-item">Clothing</li>
+                    <li class="list-group-item">Strollers</li>
+                    <li class="list-group-item">Shoes</li>
+                    <li class="list-group-item">Coats</li>
+                    <li class="list-group-item">Bicycles</li>
+                    <li class="list-group-item">Passes, Tickets, Experiences</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-common btn-grey" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Donation Modal For Pick Up Scheduling -->
+    <div id="sched_pu_modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Schedule a Donation Pick-up</h4>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+             <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+              <input type=hidden name="oid" value="00D50000000WYmZ">
+              <input type=hidden name="retURL" value="www.nolbpittsburgh.org">
+              <input type=hidden name="recordType" value="012500000006tDA">
+              <input type=hidden name="00N5000000AYXHV" id="00N5000000AYXHV" title="Lead Chapter" value="Pittsburgh">
+              <div class="row">
+                <div class="col-25">
+                  <label for="first_name">First Name</label>
+                </div>
+                <div class="col-75">
+                  <input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="last_name">Last Name</label>
+                </div>
+                <div class="col-75">
+                  <input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="phone">Phone</label>
+                </div>
+                <div class="col-75">
+                  <input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="email">Email</label>
+                </div>
+                <div class="col-75">
+                  <input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="street">Street</label>
+                </div>
+                <div class="col-75">
+                  <textarea name="street"></textarea><br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="city">City</label>
+                </div>
+                <div class="col-75">
+                  <input  id="city" maxlength="40" name="city" size="20" type="text" /><br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="zip">Zip</label>
+                </div>
+                <div class="col-75">
+                  <input  id="zip" maxlength="20" name="zip" size="20" type="text" /><br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  Primary Pickup Date:
+                </div>
+                <div class="col-75">
+                  <span class="dateInput"><input  id="00N5000000AYUzt" name="00N5000000AYUzt" type="datetime-local" /></span><br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  Secondary Pickup Date:
+                </div>
+                <div class="col-75">
+                  <span class="dateInput"><input  id="00N5000000AYUzy" name="00N5000000AYUzy" type="datetime-local" /></span><br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  Donation Items:
+                </div>
+                <div class="col-75">
+                  <select  id="00N5000000AYV08" multiple="multiple" name="00N5000000AYV08" title="Donation Items">
+                    <option value="Household Goods, General">Household Goods, General</option>
+                    <option value="Linens">Linens</option>
+                    <option value="Kitchenwares">Kitchenwares</option>
+                    <option value="Cookware">Cookware</option>
+                    <option value="Small Appliances">Small Appliances</option>
+                    <option value="Television, Small">Television, Small</option>
+                    <option value="Television, Large">Television, Large</option>
+                    <option value="Electronics, Other">Electronics, Other</option>
+                    <option value="Automobile">Automobile</option>
+                    <option value="Misc (Tickets, Gift Cards, Park Passes)">Misc (Tickets, Gift Cards, Park Passes)</option>
+                  </select><br>
+                </div>
+              </div>
+              <input type="submit" name="submit">
+              </form>
+           </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-common btn-grey" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Housing Modal For Submitting Housing Unit -->
+    <div id="ref_housing_modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Submit a Potential Housing Unit</h4>
+          </div>
+
+          <div class="modal-body">
+            <div class="container-fluid">
+
+              <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+                <input type=hidden name="oid" value="00D50000000WYmZ">
+                <input type=hidden name="retURL" value="www.nolbpittsburgh.org">
+                <input type=hidden name="recordType" value="012500000006tDP">
+                <input type=hidden name="00N5000000AYXHV" id="00N5000000AYXHV" title="Lead Chapter" value="Pittsburgh">
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="first_name">First Name</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="last_name">Last Name</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="company">Company</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="phone">Phone</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="email">Email</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="street">Street</label>
+                  </div>
+                  <div class="col-75">
+                    <textarea name="street"></textarea><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="city">City</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="city" maxlength="40" name="city" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="zip">Zip</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="zip" maxlength="20" name="zip" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    Date Housing Available:
+                  </div>
+                  <div class="col-75">
+                    <span class="dateInput dateOnlyInput"><input  id="00N5000000AYV4e" name="00N5000000AYV4e" size="12" type="text" /></span><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    Required Deposit:
+                  </div>
+                  <div class="col-75">
+                    <input  id="00N5000000AYV4j" name="00N5000000AYV4j" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    Rent Amount:
+                  </div>
+                  <div class="col-75">
+                    <input  id="00N5000000AYV4o" name="00N5000000AYV4o" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    Number of Bedrooms:
+                  </div>
+                  <div class="col-75">
+                    <input  id="00N5000000AYV4t" name="00N5000000AYV4t" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    Number of Bathrooms:
+                  </div>
+                  <div class="col-75">
+                    <input  id="00N5000000AYV53" name="00N5000000AYV53" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    Utilities Included:
+                  </div>
+                  <div class="col-75">
+                    <input  id="00N5000000AYV58" name="00N5000000AYV58" type="checkbox" value="1" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="description">Description</label>
+                  </div>
+                  <div class="col-75">
+                    <textarea name="description"></textarea><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-100">
+                    <input type="submit" name="submit">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div><!--  End Modal Body -->
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-common btn-grey" data-dismiss="modal">Close</button>
+          </div><!-- End Modal Footer -->
+
+        </div><!-- End Modal Content -->
+      </div><!-- End Modal Dialog -->
+    </div><!-- End Modal -->
+    <!-- Landlord Modal For Registering as a Landlord -->
+    <div id="ref_landlord_modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Register as a Landlord</h4>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+              <input type=hidden name="oid" value="00D50000000WYmZ">
+              <input type=hidden name="retURL" value="www.nolbpittsburgh.org">
+              <input type=hidden name="recordType" value="012500000006tDF">
+              <input type=hidden name="00N5000000AYXHV" id="00N5000000AYXHV" title="Lead Chapter" value="Pittsburgh">
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="first_name">First Name</label>
+                </div>
+                <div class="col-75">
+                  <input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="last_name">Last Name</label>
+                </div>
+                <div class="col-75">
+                  <input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="phone">Phone</label>
+                </div>
+                <div class="col-75">
+                  <input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="email">Email</label>
+                </div>
+                <div class="col-75">
+                  <input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="company">Company</label>
+                </div>
+                <div class="col-75">
+                  <input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="city">City</label>
+                </div>
+                <div class="col-75">
+                  <input  id="city" maxlength="40" name="city" size="20" type="text" /><br>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="state">State/Province</label>
+                </div>
+                <div class="col-75">
+                  <input id="state" maxlength="20" name="state" size="20" type="text" /><br>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-100"><input type="submit" name="submit"></div>
+              </div>
+
+            </form>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-common btn-grey" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Employer Modal For Registering as an Employer -->
+    <div id="ref_employer_modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Register as a Potential Employer</h4>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+                <input type=hidden name="oid" value="00D50000000WYmZ">
+                <input type=hidden name="retURL" value="www.nolbpittsburgh.org">
+                <input type=hidden name="recordType" value="012500000006tDK">
+                <input type=hidden name="00N5000000AYXHV" id="00N5000000AYXHV" title="Lead Chapter" value="Pittsburgh">
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="first_name">First Name</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="last_name">Last Name</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="phone">Phone</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="email">Email</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="company">Company</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                  Company Street:
+                </div>
+                  <div class="col-75">
+                    <textarea  id="00N50000007djpk" name="00N50000007djpk" type="text" wrap="soft"></textarea><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                  Company City:
+                </div>
+                  <div class="col-75">
+                    <input  id="00N50000007djpg" maxlength="255" name="00N50000007djpg" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                  Company Zip/Postal Code:
+                </div>
+                  <div class="col-75">
+                    <input  id="00N50000007djpi" maxlength="255" name="00N50000007djpi" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="URL">Website</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="URL" maxlength="80" name="URL" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="industry">Industry</label>
+                  </div>
+                  <div class="col-75">
+                    <select  id="industry" name="industry">
+                      <option value="">--None--</option>
+                      <option value="Agriculture">Agriculture</option>
+                      <option value="Apparel">Apparel</option>
+                      <option value="Banking">Banking</option>
+                      <option value="Biotechnology">Biotechnology</option>
+                      <option value="Chemicals">Chemicals</option>
+                      <option value="Communications">Communications</option>
+                      <option value="Construction">Construction</option>
+                      <option value="Consulting">Consulting</option>
+                      <option value="Education">Education</option>
+                      <option value="Electronics">Electronics</option>
+                      <option value="Energy">Energy</option>
+                      <option value="Engineering">Engineering</option>
+                      <option value="Entertainment">Entertainment</option>
+                      <option value="Environmental">Environmental</option>
+                      <option value="Finance">Finance</option>
+                      <option value="Food &amp; Beverage">Food &amp; Beverage</option>
+                      <option value="Government">Government</option>
+                      <option value="Healthcare">Healthcare</option>
+                      <option value="Hospitality">Hospitality</option>
+                      <option value="Insurance">Insurance</option>
+                      <option value="Machinery">Machinery</option>
+                      <option value="Manufacturing">Manufacturing</option>
+                      <option value="Media">Media</option>
+                      <option value="Not For Profit">Not For Profit</option>
+                      <option value="Recreation">Recreation</option>
+                      <option value="Retail">Retail</option>
+                      <option value="Shipping">Shipping</option>
+                      <option value="Technology">Technology</option>
+                      <option value="Telecommunications">Telecommunications</option>
+                      <option value="Transportation">Transportation</option>
+                      <option value="Utilities">Utilities</option>
+                      <option value="Other">Other</option>
+                    </select><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="doNotCall">Do Not Call</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="doNotCall" name="doNotCall" type="checkbox" value="1" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-100">
+                    <input type="submit" name="submit">
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-common btn-grey" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="car_donate_modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Donate a Car</h4>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+             <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+              <input type=hidden name="oid" value="00D50000000WYmZ">
+              <input type=hidden name="retURL" value="www.nolbpittsburgh.org">
+              <input type=hidden name="recordType" value="012500000006tKB">
+              <input type=hidden name="00N5000000AYXHV" id="00N5000000AYXHV" title="Lead Chapter" value="Pittsburgh">
+              <div class="row">
+                <div class="col-25">
+                  <label for="first_name">First Name</label>
+                </div>
+                <div class="col-75">
+                  <input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="last_name">Last Name</label>
+                </div>
+                <div class="col-75">
+                  <input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="phone">Phone</label>
+                </div>
+                <div class="col-75">
+                  <input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="email">Email</label>
+                </div>
+                <div class="col-75">
+                  <input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+                </div>
+              </div>
+              <input type="submit" name="submit">
+              </form>
+           </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-common btn-grey" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="lead_candidate_modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Apply for Leadership Team</h4>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+                <input type=hidden name="oid" value="00D50000000WYmZ">
+                <input type=hidden name="retURL" value="www.nolbpittsburgh.org">
+                <input type=hidden name="recordType" value="012500000006tKG">
+                <input type=hidden name="00N5000000AYXHV" id="00N5000000AYXHV" title="Lead Chapter" value="Pittsburgh">
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="first_name">First Name</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="last_name">Last Name</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="phone">Phone</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="email">Email</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="company">Company</label>
+                  </div>
+                  <div class="col-75">
+                    <input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                  <label for="street">Street</label>
+                </div>
+                  <div class="col-75">
+                    <textarea name="street"></textarea><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                  <label for="city">City</label>
+                </div>
+                  <div class="col-75">
+                    <input  id="city" maxlength="40" name="city" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                  <label for="zip">Zip</label>
+                </div>
+                  <div class="col-75">
+                    <input  id="zip" maxlength="20" name="zip" size="20" type="text" /><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    Volunteer Availability:
+                  </div>
+                  <div class="col-75">
+                    <select  id="00N50000007djkg" multiple="multiple" name="00N50000007djkg" title="Volunteer Availability">
+                      <option value="Weekdays">Weekdays</option>
+                      <option value="Weekends">Weekends</option>
+                      <option value="Morning">Morning</option>
+                      <option value="Afternoon">Afternoon</option>
+                      <option value="Weekly">Weekly</option>
+                    </select><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    Volunteer Notes:
+                  </div>
+                  <div class="col-75">
+                    <textarea  id="00N50000007djkh" name="00N50000007djkh" rows="5" type="text" wrap="soft"></textarea><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    Volunteer Skills:
+                  </div>
+                  <div class="col-75">
+                    <select  id="00N50000007djki" multiple="multiple" name="00N50000007djki" title="Volunteer Skills">
+                      <option value="Computer usage">Computer usage</option>
+                      <option value="Manual labor">Manual labor</option>
+                      <option value="Marketing">Marketing</option>
+                      <option value="Fundraising">Fundraising</option>
+                      <option value="Event Planning">Event Planning</option>
+                      <option value="Landscaping">Landscaping</option>
+                    </select><br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-100">
+                    <input type="submit" name="submit">
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-common btn-grey" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!-- Scripts -->
     <script src="js/jquery-2.1.4.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.themepunch.tools.min.js"></script>
