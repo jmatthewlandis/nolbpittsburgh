@@ -1,4 +1,0 @@
-if (self.CavalryLogger) { CavalryLogger.start_js(["42aSx"]); }
-
-__d("PartnerPortalServiceType",[],(function a(b,c,d,e,f,g){f.exports={actionable_insights:"ACTIONABLE_INSIGHTS",internet_dot_org:"INTERNET_DOT_ORG",msisdn_data_sharing:"MSISDN_DATA_SHARING",whatsapp:"WHATSAPP",preloads:"PRELOADS"}}),null);
-__d("ArticleAuthorEngagementBlock",["csx","CSS","DOMQuery","Event","Parent","Style"],(function a(b,c,d,e,f,g,h){__p&&__p();var i="._4lu7",j="._5zb4",k={registerClickHandler:function l(m,n,o){__p&&__p();c("Event").listen(m,"click",function(p){__p&&__p();if(p.target&&(c("Parent").bySelector(p.target,i)||c("Parent").bySelector(p.target,j)))return;if(n!==undefined&&c("CSS").shown(n)===false){if(o){var q=c("DOMQuery").scry(m,"._3c21"),r=c("DOMQuery").scry(m,"._6m3");if(q.length===0||r.length===0)return;var s=q[0],t=r[0];c("Style").set(s,"height","237px");c("Style").set(t,"height","179px")}c("CSS").show(n)}})}};f.exports=k}),null);

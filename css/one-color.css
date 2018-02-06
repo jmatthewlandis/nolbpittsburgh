@@ -29,25 +29,15 @@
 }
 
 .we-do .do-wrap a:hover{
-	color:#07aaa5;
+	color:#ffc20e;
 }
-.we-do .do-wrap:hover .top, we-do .do-wrap:focus .top, .we-do .do-wrap:hover span, .we-do .do-wrap:focus span{
-	background:#07aaa5;
-}
-
-.pricing_item.dark_gray {
-    border-color: #969696;
-}
-
-.pricing_item.dark_gray .pricing_action{
-    background: #969696;
+.we-do .do-wrap:hover .top,
+.we-do .do-wrap:focus .top,
+.we-do .do-wrap:hover span,
+.we-do .do-wrap:focus span{
+	background:#00529b;
 }
 
-
-.pricing_item.dark_gray:hover .pricing_action{
-	border:1px solid transparent;
-	background:#07AAA5 !important;
-}
 
 
 
